@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISS · Commander on Deck</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ 1. BOOT / AUTH ============ -->
+<section id="scene-boot" class="scene active crt">
+  <div id="term"></div>
+  <div id="badge-stage">
+    <div id="badge-slot"></div>
+    <button class="btn pink big" id="to-launch">Suit up &amp; launch →</button>
+  </div>
+</section>
+
+<!-- ============ 2. LAUNCH ============ -->
+<section id="scene-launch" class="scene">
+  <canvas id="launch-stars" class="fill"></canvas>
+  <div id="sky" class="fill"></div>
+  <div id="ground">
+    <div class="treeline"></div>
+    <div class="land"></div>
+    <div class="tower"></div>
+  </div>
+  <canvas id="smoke" class="fill"></canvas>
+  <div id="rocket-wrap">
+    <svg id="rocket" viewBox="0 0 90 300" aria-hidden="true">
+      <g id="r-booster">
+        <path d="M18 250 L4 292 L24 280 Z" fill="#ff79b4"/>
+        <path d="M72 250 L86 292 L66 280 Z" fill="#ff79b4"/>
+        <rect x="24" y="118" width="42" height="160" rx="4" fill="#f5f7fa" stroke="#c3ccd6"/>
+        <rect x="24" y="150" width="42" height="10" fill="#1d2733"/>
+        <text x="45" y="215" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#1d2733" transform="rotate(-90 45 215)">PARV-1</text>
+        <path d="M30 278 L60 278 L64 292 L26 292 Z" fill="#3b4652"/>
+      </g>
+      <g id="r-upper">
+        <path d="M45 4 C62 26 68 56 68 92 L22 92 C22 56 28 26 45 4 Z" fill="#fbfcfd" stroke="#c3ccd6"/>
+        <rect x="22" y="72" width="46" height="8" fill="#ff79b4"/>
+        <circle cx="45" cy="50" r="10" fill="#15304f" stroke="#c3ccd6" stroke-width="2"/>
+        <path d="M45 55 C39 50 40 45 43 45 C44.5 45 45 46.5 45 46.5 C45 46.5 45.5 45 47 45 C50 45 51 50 45 55 Z" fill="#ff79b4"/>
+        <rect x="24" y="92" width="42" height="26" fill="#e3e8ee" stroke="#c3ccd6"/>
+      </g>
+    </svg>
+    <div id="flame"></div>
+    <div id="flame2"></div>
+  </div>
+  <div class="panel" id="gonogo"><h4>LAUNCH DIRECTOR · GO / NO-GO POLL</h4><ul></ul></div>
+  <div class="panel" id="telemetry">
+    <h4>TELEMETRY</h4>
+    <div class="row"><span>T</span><b id="t-clock">-00:10</b></div>
+    <div class="row"><span>ALTITUDE</span><b id="t-alt">0.0 km</b></div>
+    <div class="row"><span>VELOCITY</span><b id="t-vel">0 km/h</b></div>
+    <div class="row"><span>STAGE</span><b id="t-stage">PAD</b></div>
+    <div class="row"><span>THROTTLE</span><b id="t-thr">0%</b></div>
+  </div>
+  <div id="launch-cta">
+    <div id="countdown">T-10</div>
+    <button class="btn big hold" id="throttle" disabled><span class="prog"></span><span class="lbl">Standby…</span></button>
+    <small id="throttle-hint">&nbsp;</small>
+  </div>
+  <div id="launch-event" class="event-text"></div>
+  <div id="flash" class="fill"></div>
+</section>
+
+<!-- ============ 3. DOCKING ============ -->
+<section id="scene-dock" class="scene">
+  <canvas id="dock-stars" class="fill"></canvas>
+  <canvas id="dock-earth" width="560" height="560"></canvas>
+  <div id="iss-wrap"></div>
+  <div id="tgt"><span id="tgt-l">ISS · 90 m</span></div><div id="tgt-arrow"></div>
+  <svg id="reticle" viewBox="-80 -80 160 160" aria-hidden="true">
+    <circle r="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 6"/>
+    <circle r="3" fill="currentColor"/>
+    <path d="M-78 0H-62M62 0H78M0 -78V-62M0 62V78" stroke="currentColor" stroke-width="2"/>
+  </svg>
+  <div class="panel" id="dock-hud">
+    <h4>DRAGON · RENDEZVOUS &amp; DOCKING</h4>
+    <div class="row"><span>RANGE</span><b id="d-range">120.0 m</b></div>
+    <div class="row"><span>CLOSING RATE</span><b id="d-rate">0.00 m/s</b></div>
+    <div class="row"><span>ΔX / ΔY</span><b id="d-xy">0 / 0</b></div>
+    <div class="row"><span>STATUS</span><b id="d-status">ALIGN</b></div>
+  </div>
+  <div id="dock-help">
+    <div>Steer toward the docking target with <b>W A S D</b> or the <b>arrow keys</b>.<br>Keep it inside the circle and the capsule closes in on its own.</div>
+    <div class="pad-keys">
+      <span></span><button data-k="up">▲</button><span></span>
+      <button data-k="left">◀</button><button data-k="down">▼</button><button data-k="right">▶</button>
+    </div>
+  </div>
+  <button class="btn" id="autodock" hidden>Engage autopilot</button>
+  <div id="dock-event" class="event-text"></div>
+</section>
+
+<!-- ============ 4. STATION ============ -->
+<section id="scene-station" class="scene">
+  <canvas id="station-stars" class="fill"></canvas>
+  <div id="earth-limb"><div class="clouds"></div></div>
+  <div id="world"><div id="track"></div></div>
+
+  <header id="hud">
+    <div class="hud-l">
+      <div class="hud-face" id="hud-face"></div>
+      <div>
+        <div class="hud-name" id="hud-name">CDR</div>
+        <div class="hud-vitals"><span class="heart">♥</span> <b id="hr">72</b> bpm · suit nominal</div>
+      </div>
+    </div>
+    <div class="hud-c">
+      <div id="mod-name">UNITY</div>
+      <div id="mod-sub">Node 1</div>
+    </div>
+    <div class="hud-r">
+      <div class="stat"><small>MET</small><b id="met">00:00:00</b></div>
+      <div class="stat"><small>ALT</small><b id="alt">408.2 km</b></div>
+      <div class="stat"><small>VEL</small><b id="vel">27,580 km/h</b></div>
+      <div class="stat"><small>ORBIT</small><b id="orbit">1</b></div>
+      <button class="hud-btn" id="log-btn">Mission log <b id="log-count">0/6</b></button>
+      <button class="hud-btn icon" id="snd-btn" title="Sound">🔊</button>
+    </div>
+  </header>
+
+  <button class="nav-arrow l" id="nav-l" aria-label="Previous module">◀</button>
+  <button class="nav-arrow r" id="nav-r" aria-label="Next module">▶</button>
+  <nav id="minimap"></nav>
+  <div id="nav-hint">Float between modules with <b>← →</b> or <b>A D</b></div>
+
+  <div id="darkness"></div>
+  <div id="sensor" class="panel">
+    <h4>MOTION SENSOR</h4>
+    <div class="sensor-bars" id="sensor-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="row"><span>CONTACT RANGE</span><b id="sensor-range">—</b></div>
+  </div>
+
+  <div id="comms"><div class="comms-head"><span class="rec"></span><b id="comms-who">CAPCOM</b><span class="comms-freq">01.23 GHz</span></div><div id="comms-text"></div></div>
+</section>
+
+<!-- ============ 5. FINALE ============ -->
+<section id="scene-finale" class="scene">
+  <canvas id="fin-stars" class="fill"></canvas>
+  <canvas id="fin-earth" width="560" height="560"></canvas>
+  <div id="fin-iss"></div>
+  <div id="fin-card" class="glass">
+    <div class="fin-from" id="fin-from">FINAL TRANSMISSION</div>
+    <h2 id="fin-title"></h2>
+    <div id="fin-text"></div>
+    <div id="fin-bottom">
+      <div id="fin-photo"></div>
+      <button class="btn pink" id="fin-next">🎫 One more thing…</button>
+    </div>
+  </div>
+  <div id="fin-hint">click anywhere in space ✦</div>
+</section>
+
+<!-- ============ OVERLAYS ============ -->
+<div id="console" class="overlay">
+  <div class="cframe">
+    <div class="chead"><span class="ctag" id="c-tag">M01</span><b id="c-title">—</b><span class="cmod" id="c-mod"></span><button class="cclose" id="c-close">Exit console ✕</button></div>
+    <div id="c-body"></div>
+    <div class="cscan"></div>
+  </div>
+</div>
+
+<div id="brief" class="overlay"><div class="brief-card" id="brief-card"></div></div>
+
+<div id="letter" class="overlay">
+  <div class="env-wrap" id="env-wrap">
+    <div class="envelope" id="envelope">
+      <div class="env-back"></div>
+      <div class="paper" id="paper">
+        <div class="paper-head"><span class="paper-tag" id="paper-tag">TRANSMISSION 01</span><small id="paper-meta"></small></div>
+        <h3 id="paper-title"></h3>
+        <div id="paper-body"></div>
+        <div class="paper-sign" id="paper-sign"></div>
+      </div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <button class="seal" id="seal" aria-label="Open letter">♥</button>
+    </div>
+    <div class="env-hint" id="env-hint">tap the seal to open</div>
+  </div>
+  <button class="btn letter-close" id="letter-close">Close ✕</button>
+</div>
+
+<aside id="log" class="drawer">
+  <div class="drawer-head"><h3>MISSION LOG</h3><button class="cclose" id="log-close">✕</button></div>
+  <div id="log-list"></div>
+</aside>
+
+<div id="lightbox" class="overlay"><div class="lb-inner" id="lb-inner"></div></div>
+<div id="pass-wrap" class="overlay"><div id="pass-slot"></div></div>
+<div id="boo"><div class="boo-photo" id="boo-photo"></div><div class="boo-text">BOO!</div></div>
+<div id="toast"></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
