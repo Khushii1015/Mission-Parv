@@ -56,20 +56,12 @@ const CONFIG = {
 
     cupola: {                                   // Mission 1: the telescope finds your bench
       title: "The bench by the river",
-      text: `I still remember the time when we used to go to the forest near 
-      campus and there was a bench beside the river. Those were the days before
-      we started dating and who knew we would come this far and be so close. I
-      remember you telling me that you were contemplating wether you put your 
-      arm around me and I'm glad you did. We shared a beautiful moment and deep
-      down we both knew where this was going to be in the future. We were just 
-      waiting for the right time to come!`
+      text: `I still remember the time when we used to go to the forest near campus and there was a bench beside the river. Those were the days before we started dating and who knew we would come this far and be so close. I remember you telling me that you were contemplating wether you put your arm around me and I'm glad you did. We shared a beautiful moment and deep down we both knew where this was going to be in the future. We were just waiting for the right time to come!`
     },
 
     nightOps: {                                 // Mission 2: lights out, jump scare
       title: "Scaring each other at night",
-      text: `✏️ Write your letter here.
-
-(About sitting on that bench in the forest at night and scaring each other.)`
+      text: `Ouuu I remember when in first year we used to go into the forest on campus at night. I used to have classes some days till 8 and 9pm and you used to take me to the forest in front of Erindale and scare me. We would sit on the bench and tell each other scary stories and the speakers used to make scary noises that would add onto the fun. Those times are so fun to remember, we should explore a real haunted location one day! I also remember one night I grabbed your arm and walked you arund the fire pit there pertending we were taking our wedding pheras. You jumped into the fire pit. Hope you don't do that in real life. But yesss I can't wait for that day to become reality and one day we actually walk around a fire getting closer to being husband and wife with every step we take!`
     },
 
     anniversary: {                              // Mission 3: downtown Toronto
