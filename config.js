@@ -21,9 +21,9 @@ const CONFIG = {
 
   /* ---------- THE SONG (Mission 4) ---------- */
   song: {
-    title: "Kajra Re",
+    title: "Your favourite song lyrics",
     youtubeId: "4dsFQFCvVGU",          // the part after watch?v= in the link
-    startSeconds: 350                  // 5:50  →  5 × 60 + 50 = 350
+    startSeconds: 351                  // 5:51  →  5 × 60 + 50 = 351
   },
 
   /* ---------- PHOTOS ----------
@@ -56,9 +56,13 @@ const CONFIG = {
 
     cupola: {                                   // Mission 1: the telescope finds your bench
       title: "The bench by the river",
-      text: `✏️ Write your letter here.
-
-(About the forest walks and sitting on the bench watching the river, before you two were dating.)`
+      text: `I still remember the time when we used to go to the forest near 
+      campus and there was a bench beside the river. Those were the days before
+      we started dating and who knew we would come this far and be so close. I
+      remember you telling me that you were contemplating wether you put your 
+      arm around me and I'm glad you did. We shared a beautiful moment and deep
+      down we both knew where this was going to be in the future. We were just 
+      waiting for the right time to come!`
     },
 
     nightOps: {                                 // Mission 2: lights out, jump scare
@@ -108,17 +112,17 @@ This is the last thing he reads, floating in space above Earth.`
      Edit, add or remove. Keep each one short.                        */
   coupons: [
     { icon: "💋", title: "Unlimited kisses",        note: "No expiry date" },
-    { icon: "🎬", title: "Movie night",             note: "Your pick, no complaints" },
-    { icon: "🥗", title: "Fresh Kitchen date",      note: "My treat" },
-    { icon: "💆", title: "20-minute back rub",       note: "Redeem anytime" },
-    { icon: "🌲", title: "Forest walk + bench",      note: "Scaring allowed" },
+    { icon: "🎬", title: "Movie time",             note: "Your pick, no complaints" },
+    { icon: "🥗", title: "Food date",      note: "My treat" },
+    { icon: "🤫", title: "Be quiet for 2 minutes",       note: "Redeem anytime" },
+    { icon: "🌲", title: "A wlak in the forest",      note: "Scaring allowed" },
     { icon: "🏆", title: "Win one argument",         note: "Instantly. No questions." }
   ],
 
   /* ---------- BOARDING PASS (the very end) ---------- */
   boardingPass: {
     note: "You said you want to go to space at least once. Until then, I built you a station. Seat 1A is reserved for you.",
-    date: "SOMEDAY",
+    date: "ONE DAY",
     seat: "1A",
     companionSeat: "1B"
   }
