@@ -28,24 +28,24 @@ const CONFIG = {
 
   /* ---------- PHOTOS ----------
      Put your photos in the "images" folder, named EXACTLY like below.
-     Names are case-sensitive on GitHub (photo.JPG ≠ photo.jpg).
+     Names are case-sensitive on GitHub (photo.JPG ≠ photo.jpeg).
      If your file is a .png or .jpeg, just change the ending here.
      Captions are the handwritten text under each polaroid.          */
   photos: {
-    commanderBadge: { src: "images/parv-badge.jpg",   caption: "" },                       // his face, for his crew ID card
-    copilotBadge:   { src: "images/khushi-badge.jpg", caption: "" },                       // your face, for the co-pilot form
-    bench:          { src: "images/bench.jpg",        caption: "our bench by the river" }, // Mission 1
-    boo:            { src: "images/boo.jpg",          caption: "boo!" },                   // Mission 2 jump scare (a silly photo of you)
-    museum:         { src: "images/museum.jpg",       caption: "Museum of Illusions" },    // Mission 3
-    freshKitchen:   { src: "images/fresh-kitchen.jpg",caption: "Fresh Kitchen ♥" },        // Mission 3
-    dorm:           { src: "images/dorm.jpg",         caption: "January 23" },             // Mission 5
-    finale:         { src: "images/us.jpg",           caption: "us" },                     // Final transmission
+    commanderBadge: { src: "images/parv-badge.jpeg",   caption: "" },                       // his face, for his crew ID card
+    copilotBadge:   { src: "images/khushi-badge.jpeg", caption: "" },                       // your face, for the co-pilot form
+    bench:          { src: "images/bench.jpeg",        caption: "our bench by the river" }, // Mission 1
+    boo:            { src: "images/boo.jpeg",          caption: "boo!" },                   // Mission 2 jump scare (a silly photo of you)
+    museum:         { src: "images/museum.jpeg",       caption: "Museum of Illusions" },    // Mission 3
+    freshKitchen:   { src: "images/fresh-kitchen.jpeg",caption: "Fresh Kitchen ♥" },        // Mission 3
+    dorm:           { src: "images/dorm.jpeg",         caption: "January 23" },             // Mission 5
+    finale:         { src: "images/us.jpeg",           caption: "us" },                     // Final transmission
 
     // Polaroids floating around the station that he can grab and click. Add or remove freely.
     floating: [
-      { src: "images/float-1.jpg", caption: "" },
-      { src: "images/float-2.jpg", caption: "" },
-      { src: "images/float-3.jpg", caption: "" }
+      { src: "images/float-1.jpeg", caption: "" },
+      { src: "images/float-2.jpeg", caption: "" },
+      { src: "images/float-3.jpeg", caption: "" }
     ]
   },
 
