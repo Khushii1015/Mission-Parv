@@ -66,23 +66,17 @@ const CONFIG = {
 
     anniversary: {                              // Mission 3: downtown Toronto
       title: "Our first anniversary",
-      text: `✏️ Write your letter here.
-
-(About your 1-year anniversary: the Museum of Illusions and Fresh Kitchen + Juice Bar.)`
+      text: `Our 1 year anniversary was my first full day date and I loved every moment of it. Spending that much time with you never made me feel like I needed a break. Normally, with anyone else I'd be mentaly tired with that much time but with you every second felt like it was worth it! I can't image not spending my life with someone who recharges my batter rather than drain it. That day was amazingggg! I loves the museum time and the food we had later on! We will always spend our anniversary day together and embrace the year we spent together!`
     },
 
     song: {                                     // Mission 4: Kajra Re
-      title: "Our frequency",
-      text: `✏️ Write your letter here.
-
-(About Kajra Re, or anything the song reminds you of.)`
+      title: "Your frequency",
+      text: `I still remember a very long time ago, just once, you told me there was something about this song lyric that hits you different. I still remember it because it really does sound like something different, something nice. Some day, maybe we can dance ot this song together?`
     },
 
     crewQuarters: {                             // Mission 5: the dorm, Jan 23
       title: "The night you asked",
-      text: `✏️ Write your letter here.
-
-(About the night he asked you to be his girlfriend in his dorm room.)`
+      text: `The day in the OPH dorm, Jan 23, 2025, you asked me to be your girlfriend. It was an moment that started with an unexpected peck on the lips. Who knew that peck would turn into something crazy within a few seconds. That was the moment everything started, the ups and downs, the crazy and cozy, the fast and slow moments. It was the begining to a journey that I hope will last till death! Nothing can make me forget that day, the day we decided that we would take this step together to be in a relationship. You have since then truly shown me what it takes to carry forward a healthy relationship. The challenges were also a learning point for me and I'm glad we had all those moments. We truly have grown together and we will continue to. I will always be your biggest supporter to the best of my abbility, I promise.`
     },
 
     lifeSupport: {                              // Mission 6: kisses
