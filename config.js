@@ -81,16 +81,12 @@ const CONFIG = {
 
     lifeSupport: {                              // Mission 6: kisses
       title: "Kiss reserves",
-      text: `✏️ Write your letter here.
-
-(Something cute and short about kisses.)`
+      text: `Lotssss of kissesssssss!! We both reeally like giving each other kisses, especially you, you love eating up my entire face hehe. Kisses is our way of expressing our love to each other in an intimate way and it's a beautiful way. Each kiss is a secret way of saying how much we love each other and it means a lot. We have probably done like 10,000+ kisses till now and I hope this never stops. I want a kiss every time we wake up, go to sleep, or do anything together! A kiss is a small way of reassuring someone and I love it!! Thank you for always giving me reminders of how much you love me and reassuring!!`
     },
 
     final: {                                    // The big one, after he floats out of the airlock
       title: "Final transmission",
-      text: `✏️ Write your final letter here.
-
-This is the last thing he reads, floating in space above Earth.`
+      text: `Hey Parv, I made this entire Space journey for you, to embrace our little and big moments that we have shared together. I know you want to go to space at least once in your life so what better theme could there be? I want you to know that I do remember even the little things that have been mentioned throughout the years. I am not perfect in every way but I want you to know thay I also am very emotionally involved in this relationship a lot and I care about you a lottttt! I wish to spend eternirty with you and beyond. I was ups and downs with you, I wouldn't do it with anyone else. I would go through the sickness, sadness, love, peache, chaos, happiness, and anything always with you. You are what I need and what I want and I wouldn't change anything about that. This relationship has been one of the best things that have ever happened to me. Trust me when I say, you have showed me how it feels to be loved by a man. I can not thank you enough for going through everything with me. I am really looking forward to the life we will build with each other. All the moments and memories we will share. I want you to be in everything with me. I want to see you reach the stars, go beyond anything and everything you ever imagined. Be who you want to be! We will make it one day, we will one day say those words. We will say that we made it. We will look back at how far we've come and be at peace. I will forever be your biggest supporter, I promise. I love you!`
     }
   },
 
